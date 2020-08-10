@@ -1,0 +1,25 @@
+.Repository-row{
+    width:800px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.repos-description{
+    font-size: 17px;
+
+}
+
+ .statistics span {
+border: 3px solid black; 
+margin: 10px 5px;
+padding: 6px;
+
+}
+.statistics p {
+    display: inline-block;
+    margin-left:10px;
+}

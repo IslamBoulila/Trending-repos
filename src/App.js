@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 
 import './App.css';
 import Layout from './components/Layout/Layout';
-import Repository from './components/Repository/Repository';
+import ReposList from './containers/Repositories/ReposList';
+
 
 
 class  App extends  Component{
@@ -11,7 +12,7 @@ class  App extends  Component{
     return (
       <div className="App">
           <Layout>
-              <Repository/>
+             <ReposList/>
           </Layout>
       </div>
     );
