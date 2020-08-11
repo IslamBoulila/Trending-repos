@@ -2,21 +2,25 @@ import React from 'react';
 import './Repository.css';
 
 const Repository=(props)=>{
-
+    const timeInterval=  new Date().getTime()-new Date(props.creationDate).getTime() ;
+  const  daysTimeInterval= (timeInterval/ (1000 * 3600 * 24)) .toFixed(0);
+  
     return (
+
+        
             <div className="Repository-row">
                 <figure>
-                 <img src="logo192.png" alt="Avatar"/>
+                 <img className="avatar" src={props.avatar} alt="Avatar"/>
                 </figure>
 
                 <div className="Repos-infos">
-                    <h3>Tenserflow</h3>
-                    <p className="repos-description">An open source Maching learning Framework</p>
+                    <h3>{props.name}</h3>
+                    <p className="repos-description">{props.description}</p>
                       
                     <div className="statistics" >
-                        <span >Stars: 118K </span>
-                        <span >Issues: 1.6K </span>
-                        <p>Submitted 30 days ago by Avatar Name</p>
+                        <span >Stars: {(+props.starsCount/1000).toPrecision(2) }K</span>
+                        <span >Issues: {props.issuesCount}K</span>
+                        <p>Submitted {daysTimeInterval} days ago by {props.owner}</p>
                     </div>
 
                 </div>
