@@ -8,7 +8,7 @@ const Repository=(props)=>{
     return (
 
         
-            <div className="Repository-row">
+            <div className="repository-row">
                 <figure>
                  <img className="avatar" src={props.avatar} alt="Avatar"/>
                 </figure>
@@ -19,7 +19,7 @@ const Repository=(props)=>{
                       
                     <div className="statistics" >
                         <span >Stars: {(+props.starsCount/1000).toPrecision(2) }K</span>
-                        <span >Issues: {props.issuesCount}K</span>
+                        <span >Issues: {props.issuesCount}</span>
                         <p>Submitted {daysTimeInterval} days ago by {props.owner}</p>
                     </div>
 

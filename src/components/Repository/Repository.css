@@ -1,14 +1,16 @@
-.Repository-row{
-    width:800px;
+.repository-row{
+    width:1000px;
     display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: center;
+	
 	align-items: center;
-	align-content: center;
+    align-content: center;
+    left:20px;
 }
 .Repos-infos{
     padding:20px 10px;
+    margin-left: 10px;
 }
 .avatar{
     width: 200px;
@@ -29,3 +31,4 @@ padding: 6px;
     display: inline-block;
     margin-left:10px;
 }
+
