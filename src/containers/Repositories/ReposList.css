@@ -10,3 +10,19 @@
 #firstPageBtn{
     width:200px ;
 }
+
+@media(max-width: 1000px){
+    .list{
+        width:700px;
+      margin:auto
+
+    }
+}
+
+@media(max-width: 700px){
+    .list{
+        width:500px;
+      margin:0
+
+    }
+}

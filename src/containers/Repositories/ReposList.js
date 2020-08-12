@@ -5,6 +5,7 @@ import * as dateService from '../../services/format/date';
 
 import './Pagination.css';
 import './ReposList.css';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 
 
@@ -13,14 +14,14 @@ class ReposList extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading:true,
             reposData: [],
             error: null,
             currentPage: 1,
             last30Days: null,
         };
-
-
     }
+
 
     componentDidMount() {
 
@@ -30,13 +31,14 @@ class ReposList extends Component {
         this.loadData(this.state.currentPage, last30Days);
     }
 
+
     //This function fetch the data using axios
     loadData(currentPage, last30Days) {
         let endpoint = 'https://api.github.com/search/repositories?q=created:%3E' + last30Days + '&sort=stars&order=desc';
 
         if (currentPage > 1) endpoint += '&page=' + currentPage;
         //  else if(currentPage==-1)endpoint+='rel=last';
-
+        this.setState({ loading: true }, () => {
         axios.get(endpoint)
             .then(response => {
                 console.log(response);
@@ -47,6 +49,7 @@ class ReposList extends Component {
                     error: null,
                     totalCounts: 0,
                     currentCount: response.data.total_count,
+                    loading:false,
 
 
                 });
@@ -61,20 +64,22 @@ class ReposList extends Component {
                         ({
                             error: null,
                             currentPage: prevState.currentPage,
+                            loading:false,
                         }));
-                else this.setState({ error: error });
+                else this.setState({ error: error,loading:false });
 
 
 
-            });
+            })
+        });
     }
+
+
     //Click handler on pagination' buttons: Previous  & Next
     handlePageClick(e) {
         let currentPage = this.state.currentPage;
         if (e.target.name == "next") {
             currentPage++;
-
-
             console.log("next current page" + currentPage);
 
         }
@@ -89,10 +94,9 @@ class ReposList extends Component {
 
         this.loadData(currentPage, this.state.last30Days);
 
-
-
     }
 
+    //First page button click handler
     handleFirstPageClick(e) {
         let destPage = 1;
         if (e.target.name == "last") {
@@ -102,6 +106,7 @@ class ReposList extends Component {
         this.loadData(destPage, this.state.last30Days);
     }
 
+    /*This method construct the repository rows that will  display with loaded data*/
     constructReposRows() {
         let reposList = null;
         if (this.state.error) {
@@ -127,24 +132,31 @@ class ReposList extends Component {
 
     render() {
         let repos = this.constructReposRows();
+        const isLoading=this.state.loading;
+        
+        let content= <div className="list">
+                             {!this.state.error &&
+                             <div className="pagination">
+                                  {this.state.currentPage != 1
+                                  && <button name="first" className="first" onClick={(e) => this.handleFirstPageClick(e)}>&laquo; Back to first</button>}
+                                  <button name="previous" className="previous" onClick={(e) => this.handlePageClick(e)}>❮ Previous</button>
+                                  <button name="next" className="next" onClick={(e) => this.handlePageClick(e)}>Next ❯</button>
+             
+                            </div>
+
+                              }
+
+                            {repos}
+
+                         </div>
 
 
         return (
-            <div className="list">
-                {!this.state.error &&
-                    <div className="pagination">
-                        {this.state.currentPage != 1
-                            && <button name="first" className="first" onClick={(e) => this.handleFirstPageClick(e)}>&laquo; Back to first</button>}
-                        <button name="previous" className="previous" onClick={(e) => this.handlePageClick(e)}>&#8249; Previous</button>
-                        <button name="next" className="next" onClick={(e) => this.handlePageClick(e)}>Next &#8250;</button>
-                     
-                    </div>
-
-                }
-
-                {repos}
-
-            </div>
+            <>
+                    {isLoading?<Spinner/> : content}
+            </>
+            
+            
 
 
 

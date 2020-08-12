@@ -8,7 +8,10 @@
     align-content: center;
     left:20px;
 }
-.Repos-infos{
+.repository-row h3{
+    font-size: 22px;
+}
+.repos-infos{
     padding:20px 10px;
     margin-left: 10px;
 }
@@ -17,7 +20,7 @@
     height: 200px;
 }
 .repos-description{
-    font-size: 17px;
+    font-size: 20px;
 
 }
 
@@ -32,3 +35,44 @@ padding: 6px;
     margin-left:10px;
 }
 
+
+
+
+@media(max-width: 1000px){
+   
+    .repository-row{
+        width:100%;
+        
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+            align-content: center;
+        
+
+    }
+    .repository-row  figure{
+        margin: auto;
+    }
+    .repos-infos{
+        text-align: center;
+        
+    }
+    .statistics{
+        margin-top: 7px;
+    margin-bottom: 7px;
+    }
+    .statistics p{
+    display: block;
+    
+    }
+
+}
+
+@media(max-width: 700px){
+    .repos-description{
+    padding-right: 10px;
+    padding-left: 10px;
+    }
+}

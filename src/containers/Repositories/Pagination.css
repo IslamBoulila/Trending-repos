@@ -1,9 +1,11 @@
 button {
-    padding: 8px 16px;
+    padding: 8px 10px;
     
     font-weight: 600;
     font-size: 17px;
-    width: 120px;
+    width: 140px;
+    box-sizing: border-box;
+    height: 50px;
   }
   
   button:hover {
@@ -19,7 +21,7 @@ button {
   }
   
   .next , .firstPage {
-    background-color: dodgerblue;
+    background-color: #1e90ff;
     color: white;
   }
  .next{
@@ -45,3 +47,4 @@ button {
   color: white;
 }
  
+

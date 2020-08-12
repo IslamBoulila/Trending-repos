@@ -13,7 +13,7 @@ const Repository=(props)=>{
                  <img className="avatar" src={props.avatar} alt="Avatar"/>
                 </figure>
 
-                <div className="Repos-infos">
+                <div className="repos-infos">
                     <h3>{props.name}</h3>
                     <p className="repos-description">{props.description}</p>
                       

@@ -5,7 +5,7 @@ const Header=()=>{
 
 return (
     <div className="header">
-        <h1>Trending Repos</h1>
+        <h1>Trending Repositories</h1>
     </div>
 );
 
