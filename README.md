@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##  Trending Github repositories
+This project is my solution for the Front-end Coding Challenge of  [Gempgraphy](https://www.gemography.com/).
+It's a small webapp that will list the most starred Github repos that were created in the last 30 days.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
+* As a User I should be able to list the most starred Github repos that were created in the last 30 days. 
+* As a User I should see the results as a list. One repository per row. 
+* As a User I should be able to see for each repo/row the following details :
+  * Repository name
+  * Repository description 
+  * Number of stars for the repo. 
+  * Number of issues for the repo.
+  * Username and avatar of the owner. 
+* As a User I should be able to keep scrolling and new results should appear (pagination).
 
-### `npm start`
+## Mockup
+![Mockup](https://raw.githubusercontent.com/IslamBoulila/Trending-repos/master/mockup.png)
 
-Runs the app in the development mode.<br />
+
+## Installation and Setup Instructions
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+
+Installation:
+
+`npm install`  
+
+To Start Server:
+
+`npm start`  
+
+To Visit App run it in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will take some seconds to load be.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Notes
+* Pages take some timeto load since the app fetches the data directly from the Github API.
+* The Search API has a custom rate limit.So For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.It means that you paginate through pages only 10 times per minute.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Why ReactJs ?
+Well! I had this curiosity about ReactJs library and i started learning it just few months ago!(No that has nothing to do with my internship).And now i found this challenge from Gemography as an oppurtunity to practice what i learned and see what i can do in a short time.
