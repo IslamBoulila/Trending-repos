@@ -21,6 +21,8 @@
 }
 .repos-description{
     font-size: 20px;
+    padding:10px;
+    margin-bottom: 0;
 
 }
 
@@ -38,7 +40,7 @@ padding: 6px;
 
 
 
-@media(max-width: 1000px){
+/*@media(max-width: 1000px){
    
     .repository-row{
         width:100%;
@@ -68,11 +70,53 @@ padding: 6px;
     
     }
 
+}*/
+@media(max-width: 1000px){
+figure .avatar{
+    width: 150px;
+    height: 150px;
+}
+
+.repos-infos h3{
+    margin-top: 0;
+    margin-bottom: 0;
+}
 }
 
 @media(max-width: 700px){
-    .repos-description{
-    padding-right: 10px;
-    padding-left: 10px;
+    .repository-row{
+        width:100%;
+        
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+            align-content: center;
+        
     }
+
+    .repos-infos, .repos-description{
+        font-size: 15px;
+        margin-top: 0px;
+    }
+    .repository-row  figure{
+        margin: auto;
+    }
+    .repos-infos{
+        text-align: center;
+        
+    }
+    
+   
+    .statistics{
+        margin-top: 7px;
+    margin-bottom: 7px;
+    }
+    .statistics p{
+    display: block;
+   
+    }
+
+    
 }

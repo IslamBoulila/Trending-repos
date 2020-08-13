@@ -3,9 +3,10 @@ import Repository from '../../components/Repository/Repository';
 import axios from 'axios';
 import * as dateService from '../../services/format/date';
 
-import './Pagination.css';
 import './ReposList.css';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import Error from '../../components/UI/Error/Error';
+import Pagination from '../../components/UI/Pagination/Pagination';
 
 
 
@@ -47,6 +48,7 @@ class ReposList extends Component {
                     last30Days: last30Days,
                     currentPage: currentPage,
                     error: null,
+                    errorMessage:null,
                     totalCounts: 0,
                     currentCount: response.data.total_count,
                     loading:false,
@@ -57,16 +59,21 @@ class ReposList extends Component {
 
             })
             .catch(error => {
-                console.log(error);
-                if (error.response) console.log(error.response);
+
+                let errorMessage=null;
+               if(error.response) errorMessage=error.response.statusText;
+         
+
                 if (this.state.error)
                     this.setState((prevState) =>
                         ({
                             error: null,
+                            
                             currentPage: prevState.currentPage,
                             loading:false,
                         }));
-                else this.setState({ error: error,loading:false });
+                        
+                else this.setState({ error: error,loading:false, errorMessage });
 
 
 
@@ -87,10 +94,6 @@ class ReposList extends Component {
             currentPage--;
 
         }
-        /* else if(e.target.name=="firstPage") {
-            
-                 currentPage=1;
-                 console.log("first page handler ",currentPage); }*/
 
         this.loadData(currentPage, this.state.last30Days);
 
@@ -110,10 +113,8 @@ class ReposList extends Component {
     constructReposRows() {
         let reposList = null;
         if (this.state.error) {
-            reposList =
-                <div style={{ textAlign: 'center' }} >Oups! Something went wrong.
-           <button name="firstPage" id="firstPageBtn" onClick={(e) => this.handlePageClick(e)}>Back to previous  page</button></div>;
-
+            reposList =<Error onClickButton={(e) => this.handlePageClick(e)}  errorMessage={this.state.errorMessage}/>
+            
         }
         else if (!this.state.error) {
             reposList = this.state.reposData.map(repository => (<Repository
@@ -135,31 +136,20 @@ class ReposList extends Component {
         const isLoading=this.state.loading;
         
         let content= <div className="list">
-                             {!this.state.error &&
-                             <div className="pagination">
-                                  {this.state.currentPage != 1
-                                  && <button name="first" className="first" onClick={(e) => this.handleFirstPageClick(e)}>&laquo; Back to first</button>}
-                                  <button name="previous" className="previous" onClick={(e) => this.handlePageClick(e)}>❮ Previous</button>
-                                  <button name="next" className="next" onClick={(e) => this.handlePageClick(e)}>Next ❯</button>
-             
-                            </div>
 
-                              }
-
+                            <Pagination  show={!this.state.error} currentPage={this.state.currentPage}
+                            firstPageOnClick={(e) => this.handleFirstPageClick(e)}
+                            pageOnClick={(e) => this.handlePageClick(e)} 
+                            />
                             {repos}
 
                          </div>
-
 
         return (
             <>
                     {isLoading?<Spinner/> : content}
             </>
-            
-            
-
-
-
+           
         );
     }
 }

@@ -46,5 +46,19 @@ button {
   background-color: #2ea44f;
   color: white;
 }
- 
+.previous-small , .next-small{
+  display:none ;
+}
 
+
+@media(max-width: 700px){
+.previous-small , .next-small{
+  display:block ;
+  width: 80px;
+  margin-right: 10px;
+}
+.previous, .next{
+  display: none;
+}
+
+}
