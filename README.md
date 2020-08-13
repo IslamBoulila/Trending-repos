@@ -32,13 +32,11 @@ To Start Server:
 To Visit App run it in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will take some seconds to load be.<br />
-You will also see any lint errors in the console.
 
 
 
 ## Notes
-* Pages take some timeto load since the app fetches the data directly from the Github API.
+* Pages take some time to load since the app fetches the data directly from the Github API.
 * The Search API has a custom rate limit.So For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.It means that you paginate through pages only 10 times per minute.
 
 ## Why ReactJs ?
