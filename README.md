@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Notes
 * Pages take some time to load since the app fetches the data directly from the Github API.
-* The Search API has a custom rate limit.So For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.It means that you paginate through pages only 10 times per minute.
+* The Search API has a custom rate limit. So For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.It means that you can paginate through pages only 10 times per minute.
 
 ## Why ReactJs ?
-Well! I had this curiosity about ReactJs library and i started learning it just few months ago!(No that has nothing to do with my internship).And now i found this challenge from Gemography as an oppurtunity to practice what i learned and see what i can do in a short time.
+Well! I had this curiosity about ReactJs library and i started learning it just few months ago!(No that has nothing to do with my internship). And now i found this challenge from Gemography as an oppurtunity to practice what i learned and see what i can do in a short time.
